@@ -45,18 +45,21 @@ public class central1 {
 		Créer une méthode qui cherche le max ;-)
 		Afficher le max.
 		
-		
+		//Le tableau d'entier à trier
 		int[] t = new int[10] ; 
 		
-		
-		
+		//Initialise le tableau avec des entiers au hasard
 		InitTab(t);
 		
+		//l'affiche une fois
 		AfficherTableau(t);
+
+		//Tri tu tableau
 		TrierTableau(t);
 		
 		System.out.println("");
 		
+		//et le ré-affiche pour comparer
 		AfficherTableau(t);
 		
 		*/
@@ -71,18 +74,25 @@ public class central1 {
 		
 		int taille = 8;
 		
+		//Premier tableau de chaine avec les adresses mail
 		String [] sTab = new String [taille];
 		
+		//déclaration d'un autre tableau ou stocker les fournisseur à partir du tableau d'adresse mail
 		String [] TabFournisseur = new String [taille];
 		
+		//tableau dans lequel stocker les résultats
 		String [] TabResultat = new String [taille];
 		
+		//Initialise le tableau avec les adresses mail
 		InitStringTab(sTab);
 		
+		//Extrait les fournisseurs à partir du tableau de mail, dans le tableau de fournisseurs
 		Extraction(sTab, TabFournisseur);
-
+	
+		//Initialise le tableau de résultats à vide
 		InitStringTabNeutral(TabResultat);
 		
+		//Calcul les parts des fournisseurs et les stocks dans ce tableau
 		CalculTab(TabFournisseur, taille);
 			
 		 */
@@ -100,6 +110,7 @@ public class central1 {
 		int cpt = 0;
 		int[] nTab = new int[3];
 		
+		//Affectation et vérification d'un nombre, réaffectation si non-validation
 		while(fini == false)
 		{
 			cpt++;
@@ -134,19 +145,24 @@ public class central1 {
 		"moins" jusqu'à ce qu'il trouve le bon nombre.
 		Afficher le nombre de propositions, ainsi que le temps mis pour deviner.
 		
-		
+		//Constantes minimum et maximum
 		final int MIN = 1;
 		final int MAX = 1000;
 		
 		System.out.println("DEBUT");
 		
+		//début du jeu, lancement du timer
 		long debut = System.currentTimeMillis();
+
+		//génération du chiffre aléatoire
 		int nbrToFind = (int)(Math.random() * MAX);
+
 		int nbrTempo = 0;
 		int cpt = 0;
 		
 		Boolean over = false;
 		
+		//Demande un chiffre en boucle jusqu'a validation, vérifie par rapport au nombre aléatoire et fait un retour à l'utilisateur
 		while(!over)
 		{
 
@@ -177,7 +193,7 @@ public class central1 {
 	}
 	
 	
-	
+	//Fonction de demande de chiffre entre MIN et MAX jusqu'a validation
 	public static int GetNumber(int nbr, int MIN, int MAX	)
 	{
 		Scanner sc = new Scanner(System.in);
@@ -199,7 +215,7 @@ public class central1 {
 	
 	
 	
-	
+	//procédure de calcul de parts de marché des fournisseurs
 	public static void CalculTab(String[] t, int tabTaille)
 	{
 		int live = 0;
@@ -251,6 +267,8 @@ public class central1 {
 		System.out.print("Live : " + TabSortie[0] + "% Outlook : " + TabSortie[1] + "% Ludus : " + TabSortie[2] + "% Hotmail : " + TabSortie[3] + "%");
 	}
 	
+
+	//Procedure d'initialisation du tableau d'adresse mail
 	public static void InitStringTab(String[] t)
 	{
 		t[0] = "cedric.mag@live.fr";
@@ -263,6 +281,8 @@ public class central1 {
 		t[7] = "patrick.balkany@outlook.fr";
 	}
 	
+
+	//Procedure d'initialisation 
 	public static void InitStringTabNeutral(String[] t)
 	{
 		for(int i = 0; i < t.length; i++)
@@ -272,6 +292,7 @@ public class central1 {
 		
 	}
 	
+	//Procedure d'extraction des fournisseurs depuis les mails
 	public static void Extraction(String[] t, String[] t2)
 	{
 		
@@ -288,6 +309,7 @@ public class central1 {
 	}
 
 	
+	//affichage d'un tableau de chaines
 	public static void AfficherStringTab(String[] t)
 	{
 		for(int i = 0; i < t.length; i++)
@@ -297,6 +319,7 @@ public class central1 {
 	}
 
 	
+	//Initialisation d'un tableau d'entiers avec des nombres aléatoires
 	public static void InitTab(int[] t)
 	{
 		for(int i = 0; i < t.length; i++)
@@ -306,6 +329,7 @@ public class central1 {
 	}
 	
 	
+	//fonction de tri de tableau
 	public static void TrierTableau(int[] t)
 	{
 		int i, j, cle;
@@ -325,6 +349,7 @@ public class central1 {
 	}
 	
 	
+	//Affichage d'un tableau d'entiers
 	public static void AfficherTableau(int[] t)
 	{
 		for(int i = 0; i < t.length; i++)
