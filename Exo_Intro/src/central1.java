@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 
@@ -86,7 +87,118 @@ public class central1 {
 			
 		 */
 		
+		/***** Exo 4 ****/
+		/*
+		Générer 3 nombres aléatoires compris entre 0 et 1000
+		Vérifier si vous avez 2 nombres pairs suivis par un impair ; Si ce n'est
+		 pas le cas, recommencez jusqu'à avoir la combinaison pair, pair et 
+		impair.
+		Afficher ensuite le nombre d'essais pour y être arrivé.
+		
+		
+		Boolean fini = false;
+		int cpt = 0;
+		int[] nTab = new int[3];
+		
+		while(fini == false)
+		{
+			cpt++;
+			nTab[0] = (int)(Math.random() * 1000);
+			if(nTab[0] % 2 == 0)
+			{
+				nTab[1] = (int)(Math.random() * 1000);
+				if(nTab[1] % 2 == 0)
+				{
+					nTab[2] = (int)(Math.random() * 1000);
+					if(nTab[2] % 2 != 0)
+					{
+						fini = true;
+					}
+					
+				}
+			}
+			
+		}
+		
+		System.out.print("Nombre d'essais : " + cpt + " Chiffres : " +nTab[0] + " " + nTab[1] + " " + nTab[2]);
+		
+		*/
+		
+		
+		
+		/***** Exo 5 ****/
+		/*
+		Générer un nombre aléatoire entre 0 et 1000.
+		Demander à l'utilisateur de deviner le nombre saisi par l'ordinateur.
+		Limiter sa saisie à un nombre entre 0 et 1000, lui indiquer "plus" ou 
+		"moins" jusqu'à ce qu'il trouve le bon nombre.
+		Afficher le nombre de propositions, ainsi que le temps mis pour deviner.
+		
+		
+		final int MIN = 1;
+		final int MAX = 1000;
+		
+		System.out.println("DEBUT");
+		
+		long debut = System.currentTimeMillis();
+		int nbrToFind = (int)(Math.random() * MAX);
+		int nbrTempo = 0;
+		int cpt = 0;
+		
+		Boolean over = false;
+		
+		while(!over)
+		{
+
+			int nbrChoisi = GetNumber(nbrTempo, MIN, MAX);
+			cpt++;
+			
+			
+			if(nbrChoisi < nbrToFind)
+			{
+				System.out.println("Votre chiffre est en dessous");
+			}
+			else if(nbrChoisi > nbrToFind)
+			{
+				System.out.println("Votre chiffre est au dessus");
+			}
+			else
+			{
+				float endTime = (System.currentTimeMillis()-debut) / 1000F;
+				System.out.println("Félicitations vous avez trouvé le bon chiffre ! En " + cpt + " essai(s) et " + endTime + " secondes");
+				
+				over = !over;
+			}
+			
+			
+		}
+		*/
+		
 	}
+	
+	
+	
+	public static int GetNumber(int nbr, int MIN, int MAX	)
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Saisissez votre nombre entre " + MIN + " et " + MAX + " : ");
+		nbr = sc.nextInt();
+		while(nbr > MAX || nbr < MIN)
+		{
+			if(nbr > MAX || nbr < MIN)
+			{
+				System.out.print("Votre saisie est invalide, veuillez reessayer :");		
+				nbr = sc.nextInt();
+			}
+		}
+		
+		return nbr;
+	}
+	
+	
+	
+	
 	
 	public static void CalculTab(String[] t, int tabTaille)
 	{
